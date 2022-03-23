@@ -1,0 +1,17 @@
+type Category @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String
+  description: String
+  thumbnail: AWSURL
+  videos: [Video] @manyToMany(relationName: "CategoryVideo")
+}
+
+type Video @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String
+  description: String
+  durationInSecond: Int
+  thumbnail: AWSURL
+  file: AWSURL
+  categories: [Category] @manyToMany(relationName: "CategoryVideo")
+}

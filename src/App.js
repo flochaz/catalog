@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { AmplifyProvider, View, Flex, useTheme, Divider, Authenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
+import '@fontsource/inter';
+import { CategoryCardCollection, NavBar } from './ui-components';
 
-function App() {
+const Example = () => {
+  const { tokens } = useTheme();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <View>
+      <Flex direction="column" alignItems="center">
+        <NavBar/>
+        <Divider/>
+        <CategoryCardCollection />
+      </Flex>
+    </View>
+  )
 }
 
-export default App;
+export default function App() {
+  return (
+    <AmplifyProvider>
+      <Authenticator>
+      {({ signOut, user }) => (
+      <Example />
+      )}
+      </Authenticator>
+    </AmplifyProvider>
+  )
+}
