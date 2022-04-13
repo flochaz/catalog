@@ -1,3 +1,52 @@
+# Paris AWS Summit 2022 - FM-01 - Demo code
+
+This repo was used as part of the session FM-01 of Paris AWS Summit 2022 and aim to demonstrate how easy it is to create a web app using AWS Amplify tooling.
+
+## Demo flow
+
+1. Démarrage sur [Amplify Studio - Sandbox](https://sandbox.amplifyapp.com/)
+   1. Design du model de données
+   1. Utilisation en local / Datastore
+1. Sortie de la sandbox 
+   1. Déploiement sur AWS
+   1. Ajout d’[Amplify UI lib](https://ui.docs.amplify.aws/)
+1. Découverte d’Amplify Studio
+   1. Gestion des données
+   1. UI Design avec [Figma](https://www.figma.com/)
+1. Ajout d’authentification avec Amplify CLI
+1. CI/CD avec Amplify Console
+
+
+## Code Usage
+
+1. Install amplify cli
+   ```
+   curl -sL https://aws-amplify.github.io/amplify-cli/install | bash && $SHELL
+   ```
+1. Install dependencies
+   ```
+   npm install
+   ```
+1. Build front locally
+   ```
+   npm run build
+   ```
+1. Start front locally
+   ```
+   npm run start
+   ```
+1. Deploy the backend
+   ```
+   amplify init
+   amplify push
+   ```
+1. Play with Amplify studio to
+   * create new Categories
+   * update UI design of CategoryCard, CategoryCardCollection or NavBar
+   * update the data model
+   * manage your user base
+   * etc
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
